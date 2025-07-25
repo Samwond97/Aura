@@ -107,7 +107,7 @@ const AppLayout = () => {
           <Route element={<JournalRoutes />}>
             <Route path="/journal" element={<Journal />} />
             <Route path="/journal/entry" element={<JournalEntry />} />
-            <Route path="/journal/entry/:id"={<JournalEntry />} />
+            <Route path="/journal/entry/:id" element={<JournalEntry />} />
           </Route>
           
           <Route path="/session-history" element={<SessionHistory />} />
