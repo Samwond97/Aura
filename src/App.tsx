@@ -23,6 +23,9 @@ import Feedback from "./pages/Feedback";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import AuthManager from "@/components/auth/AuthManager";
+import Landing from "./pages/Landing";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 const queryClient = new QueryClient();
 
@@ -83,22 +86,28 @@ const JournalRoutes = () => {
 const AppLayout = () => {
   const location = useLocation();
   const isJournalEntry = location.pathname.includes('/journal/entry');
+  const isAuthPage = ['/signin', '/signup', '/'].includes(location.pathname);
 
   return (
-    <div className={`flex min-h-screen ${isJournalEntry ? 'hide-sidebar' : ''}`}>
-      <div data-sidebar="true" className="sidebar-container">
-        <Navbar />
-      </div>
+    <div className={`flex min-h-screen ${isJournalEntry || isAuthPage ? 'hide-sidebar' : ''}`}>
+      {!isAuthPage && (
+        <div data-sidebar="true" className="sidebar-container">
+          <Navbar />
+        </div>
+      )}
       <main data-content="true" className="flex-1 overflow-auto">
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/home" element={<Index />} />
           <Route path="/profile" element={<Profile />} />
           
           {/* Journal routes with authentication wrapper */}
           <Route element={<JournalRoutes />}>
             <Route path="/journal" element={<Journal />} />
             <Route path="/journal/entry" element={<JournalEntry />} />
-            <Route path="/journal/entry/:id" element={<JournalEntry />} />
+            <Route path="/journal/entry/:id"={<JournalEntry />} />
           </Route>
           
           <Route path="/session-history" element={<SessionHistory />} />
