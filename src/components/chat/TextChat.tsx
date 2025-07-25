@@ -5,7 +5,7 @@ import { MessageSquare, Send, LoaderCircle, X } from "lucide-react";
 import { toast } from "sonner";
 
 // Using Groq API key
-const GROQ_API_KEY = "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";
+const GROQ_API_KEY = "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";
 const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
 
 // Therapist system prompt
