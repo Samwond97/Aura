@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { Progress } from "@/components/ui/progress";
 
 // Using Groq API key
-const GROQ_API_KEY = "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";
+const GROQ_API_KEY = "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";
 const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
 
 // Language-specific greeting messages
